@@ -12,6 +12,7 @@ Why?
 ### Creating this repo from scratch
 `
 npm install -g yo grunt-cli bower generator-webapp generator-mocha
+gem install compass
 mkdir ~/add;
 cd ~/add;
 yo webapp;
