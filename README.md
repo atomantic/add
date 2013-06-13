@@ -4,6 +4,7 @@
 
 Why?
 
+* The most important thing is shipping. Now.
 * Manual dependency management stinks.
 * Manual deployment stinks.
 * Manually managing a static set of template tools stinks.
