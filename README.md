@@ -20,6 +20,8 @@ echo 'language: node_js
 node_js:
     - "0.10"
     - "0.8"
-    - "0.6"' >> .travis.yml
+    - "0.6"' > .travis.yml
 gem install travis-lint;
+echo 'app/scripts/vendor
+app/bower_components' >> .jshintignore
 `
