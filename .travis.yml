@@ -5,6 +5,7 @@ rvm:
   - "1.9.3"
 before_script:
   - gem install compass
+  - npm install -g mocha 
   - npm install -g bower 
   - npm install -g grunt-cli
   - npm install 
