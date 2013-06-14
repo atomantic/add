@@ -11,40 +11,27 @@ Why?
 
 ### Creating this repo from scratch
     # install npm goodness
-    npm install -g yo grunt-cli bower yeoman-generator generator-webapp karma generator-mocha generator-karma generator-travis-ci;
+    npm install -g yo grunt-cli bower yeoman-generator generator-webapp karma generator-mocha generator-karma generator-travis-ci
     # make sure we have phantomjs
-    brew install phantomjs;
+    brew install phantomjs
     # and compass
-    gem install compass;
+    gem install compass
     # create the project
-    mkdir ~/add && cd $_;
+    mkdir ~/add && cd $_
     # install basic scaffolding
     yo webapp;
     # replace crappy oldIE support with new hotness
-    sed -i 's/"jquery": "~1.9.1"/"jquery": "~2.0.2"/' bower.json;
-    # rebuild bower
-    bower install;
-    # create the travis CI config
-    echo 'language: node_js
-    node_js:
-        - "0.10"
-    rvm:
-      - "1.9.3"
-    before_script:
-      - gem install compass
-      - npm install -g mocha 
-      - npm install -g bower 
-      - npm install -g grunt-cli
-      - npm install 
-    ' > .travis.yml;
+    sed -i 's/"jquery": "~1.9.1"/"jquery": "~2.0.2"/' bower.json
+     # rebuild bower
+    bower install
     # test it
-    gem install travis-lint;
+    gem install travis-lint
     travis-lint;
     # make sure we can run jshint without grunt just because we like to sometimes (IDE support)
     echo 'app/scripts/vendor
     app/bower_components' >> .jshintignore
     # setup gh-pages merge on build success
-    yo travis-ci:gh-pages;
+    yo travis-ci:gh-pages
 
 
 [![Build Status](https://travis-ci.org/atomantic/add.png?branch=master)](https://travis-ci.org/atomantic/add)
