@@ -44,6 +44,8 @@ travis-lint;
 # make sure we can run jshint without grunt just because we like to sometimes (IDE support)
 echo 'app/scripts/vendor
 app/bower_components' >> .jshintignore
+# setup gh-pages merge on build success
+yo travis-ci:gh-pages;
 `
 
 
