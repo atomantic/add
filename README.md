@@ -24,14 +24,14 @@ Why?
     sed -i 's/"jquery": "~1.9.1"/"jquery": "~2.0.2"/' bower.json
      # rebuild bower
     bower install
-    # test it
-    gem install travis-lint
-    travis-lint;
     # make sure we can run jshint without grunt just because we like to sometimes (IDE support)
     echo 'app/scripts/vendor
     app/bower_components' >> .jshintignore
     # setup gh-pages merge on build success
     yo travis-ci:gh-pages
+    # test it
+    gem install travis-lint
+    travis-lint
 
 
 [![Build Status](https://travis-ci.org/atomantic/add.png?branch=master)](https://travis-ci.org/atomantic/add)
