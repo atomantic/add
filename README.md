@@ -12,7 +12,7 @@ Why?
 ### Creating this repo from scratch
 `
 # install npm goodness
-npm install -g yo grunt-cli bower generator-webapp karma generator-mocha generator-karma generator-travis-ci;
+npm install -g yo grunt-cli bower yeoman-generator generator-webapp karma generator-mocha generator-karma generator-travis-ci;
 # make sure we have phantomjs
 brew install phantomjs;
 # and compass
@@ -45,3 +45,6 @@ travis-lint;
 echo 'app/scripts/vendor
 app/bower_components' >> .jshintignore
 `
+
+
+[![Build Status](https://travis-ci.org/atomantic/add.png?branch=master)](https://travis-ci.org/atomantic/add)
