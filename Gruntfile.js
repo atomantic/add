@@ -1,4 +1,4 @@
-// Generated on 2013-06-13 using generator-webapp 0.2.3
+// Generated on 2013-06-14 using generator-webapp 0.2.3
 'use strict';
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
