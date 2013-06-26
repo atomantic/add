@@ -45,8 +45,4 @@
 
 ## Build Status
 
-### dev 
 [![Build Status](https://travis-ci.org/atomantic/add.png?branch=dev)](https://travis-ci.org/atomantic/add)
-
-### master 
-[![Build Status](https://travis-ci.org/atomantic/add.png?branch=master)](https://travis-ci.org/atomantic/add)
