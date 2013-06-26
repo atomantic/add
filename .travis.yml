@@ -45,8 +45,8 @@ script:
     - grunt
 after_success:
     # merge good build into master (this is our new *.*.x)
-    - git checkout master
-    - git merge dev
+    - git checkout origin/master
+    - git merge origin/dev
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
     - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} origin master > /dev/null 2>&1
     # GH-PAGES as deployment target
