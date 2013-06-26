@@ -50,6 +50,7 @@ after_success:
     # first, get the read-write copy of the source
     - git submodule add https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} master > /dev/null 2>&1
     - cd master
+    - git fetch
     - git merge dev
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
     - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} origin master > /dev/null 2>&1
