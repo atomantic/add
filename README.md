@@ -1,7 +1,7 @@
 # ADD: Automation Driven Development
 ### Building apps with an emphasis on continuous delivery
 
-Why?
+### Why?
 
 * The most important thing is shipping. Now.
 * Manual dependency management stinks.
@@ -9,7 +9,17 @@ Why?
 * Manually managing a static set of template tools stinks.
 * Where you deploy should be flexible and it should happen automatically.
 
+### Assumptions
+
+* You run OSX (or can manage installation yourself)
+* You use [Homebrew](http://mxcl.github.io/homebrew/)
+* You have [Node.js](http://nodejs.org/) (with NPM, included now with node)
+
 ### Creating this repo from scratch
+    # make sure you are up-to-date
+    brew update
+    brew upgrade # at your own risk
+    npm update -g
     # install npm goodness
     npm install -g yo grunt-cli bower yeoman-generator generator-webapp karma generator-mocha generator-karma generator-travis-ci
     # make sure we have phantomjs
