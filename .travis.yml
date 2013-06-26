@@ -52,7 +52,7 @@ after_success:
     - cd master
     - git merge origin/dev 
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} origin master > /dev/null 2>&1
+    - git push origin master > /dev/null 2>&1
     - cd ..
     # GH-PAGES as deployment target
     # merge dist files into gh-pages to publish to production
@@ -65,4 +65,4 @@ after_success:
     - git add -f .
     - git commit -am "Travis CI pushing good build to gh-pages [ci skip]"
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:gh-pages > /dev/null 2>&1
+    - git push origin HEAD:gh-pages > /dev/null 2>&1
