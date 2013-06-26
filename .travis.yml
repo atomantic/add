@@ -26,7 +26,7 @@ env:
         # travis encrypt GH_OAUTH_TOKEN=XXXXXXXXXXXXXXX
         #
         # User specific env variables
-        - secure: "Mke3rDnVYZqlcFK0UzxKkj1qUTft3frMmmixo1FruKNbwgt61k0RWtjDrs+1hj1xjCxIIaeWKh2Zjxx9AyDCfFWwjVJ6vyNq8rqvj55dTVLQot4uU42v1rTfmxIeny0DkHAuGyKXFW86sC9skCvQ25aH+u1aFWLNJKONurf2jB0="
+        - secure: "lbNahEaeruVAiW8XWTv8bIlOlo9kWUMyyuzKBv0/Y5s34wHPHekrCTD8fwP2\nlFJ99L390kWGZcMcacJeBQ0hJhx9CGB8xpS0Exaf7vM6dK1tHNQNhhNxHr1L\n+vu2VUn6VgbXHNEArfvHrDWfD58Hz3y/GQkgI35M/yTQdwIUXRo="
         - GH_OWNER: atomantic
         - GH_PROJECT_NAME: add
         # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
@@ -50,9 +50,10 @@ after_success:
     # first, get the read-write copy of the source
     - git submodule add https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} master > /dev/null 2>&1
     - cd master
-    - git remote -v #testing
-    - git checkout origin/dev
-    - git pull
+    - git merge origin/dev #don't think this works
+    # get the dev branch and merge it into master
+    - git checkout origin/dev 
+    - git checkout -b dev
     - git checkout master
     - git merge dev
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
