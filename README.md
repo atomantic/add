@@ -12,7 +12,7 @@ The only thing worse than putting a bug into production is not being able to pus
 * Manual dependency management stinks.
 * Manual deployment stinks.
 * Manually managing a static set of template tools stinks.
-* Where you deploy should be flexible and it should happen automatically.
+* Let's just automate all that and focus on solving problems.
 
 ### Assumptions
 
@@ -51,3 +51,7 @@ The only thing worse than putting a bug into production is not being able to pus
 ## Build Status
 
 [![Build Status](https://travis-ci.org/atomantic/add.png?branch=dev)](https://travis-ci.org/atomantic/add)
+
+## Website
+
+This particular ADD project outputs [the ADD site](http://atomantic.github.io/add)
