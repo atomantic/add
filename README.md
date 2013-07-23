@@ -48,5 +48,6 @@ The only thing worse than putting a bug into production is not being able to pus
     gem install travis-lint
     travis-lint
 
+## Build Status
 
-[![Build Status](https://travis-ci.org/atomantic/add.png?branch=master)](https://travis-ci.org/atomantic/add)
+[![Build Status](https://travis-ci.org/atomantic/add.png?branch=dev)](https://travis-ci.org/atomantic/add)

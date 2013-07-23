@@ -12,7 +12,7 @@ notifications:
     irc: "irc.freenode.org#generator-travis-ci"
 branches:
     only:
-        - master
+        - dev
 env:
     global:
         # GH_OAUTH_TOKEN is the oauth token generated as described at
@@ -26,12 +26,14 @@ env:
         # travis encrypt GH_OAUTH_TOKEN=XXXXXXXXXXXXXXX
         #
         # User specific env variables
-        - secure: "Mke3rDnVYZqlcFK0UzxKkj1qUTft3frMmmixo1FruKNbwgt61k0RWtjDrs+1hj1xjCxIIaeWKh2Zjxx9AyDCfFWwjVJ6vyNq8rqvj55dTVLQot4uU42v1rTfmxIeny0DkHAuGyKXFW86sC9skCvQ25aH+u1aFWLNJKONurf2jB0="
+        - secure: "lbNahEaeruVAiW8XWTv8bIlOlo9kWUMyyuzKBv0/Y5s34wHPHekrCTD8fwP2\nlFJ99L390kWGZcMcacJeBQ0hJhx9CGB8xpS0Exaf7vM6dK1tHNQNhhNxHr1L\n+vu2VUn6VgbXHNEArfvHrDWfD58Hz3y/GQkgI35M/yTQdwIUXRo="
         - GH_OWNER: atomantic
         - GH_PROJECT_NAME: add
         # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
         # and deploy the output to your project's gh-pages branch.
-
+# if your project uses git submodules, run this
+#before_install:
+#    - git submodule update --init --recursive
 before_script:
     # install dependencies
     - gem update --system
@@ -41,8 +43,17 @@ script:
     # We want to gate on passing tests and a successful build
     - bower install
     - grunt
-after_success:
+after_success:    
+    # merge good build into master (this is our new *.*.x)
+    # first, get the read-write copy of the source
+    - git submodule add https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} master > /dev/null 2>&1
+    - cd master
+    - git merge origin/dev 
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
+    - git push origin master > /dev/null 2>&1
+    - cd ..
+    # GH-PAGES as deployment target
+    # merge dist files into gh-pages to publish to production
     - git submodule add -b gh-pages https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
     - cd site
     - if git checkout gh-pages; then git checkout -b gh-pages; fi
@@ -50,8 +61,8 @@ after_success:
     - cp -R ../dist/* .
     - cp ../dist/.* .
     - git add -f .
-    - git config user.email "atomantic@gmail.com"
-    - git config user.name "Adam Eivy"
-    - git commit -am "adding the yeoman build files to gh-pages [ci skip]"
+    - git config user.email "travisci@travis-ci.org"
+    - git config user.name "Travis CI"
+    - git commit -am "Travis CI pushing good build to gh-pages [ci skip]"
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:gh-pages > /dev/null 2>&1
+    - git push origin HEAD:gh-pages > /dev/null 2>&1
