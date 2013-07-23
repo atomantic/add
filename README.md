@@ -1,9 +1,14 @@
 # ADD: Automation Driven Development
 ### Building apps with an emphasis on continuous delivery
 
+The only thing worse than putting a bug into production is not being able to push out a fix the minute you know a bug exists.
+
 ### Why?
 
 * The most important thing is shipping. Now.
+* You can NEVER know everything that can go wrong until you are in production, in front of users
+* You will NEVER know 100% of your acceptance/usage criteria until you are in production, in front of users
+* You need to be able to respond to users immediately and automatically.
 * Manual dependency management stinks.
 * Manual deployment stinks.
 * Manually managing a static set of template tools stinks.
