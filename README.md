@@ -55,3 +55,7 @@ The only thing worse than putting a bug into production is not being able to pus
 ## Website
 
 This particular ADD project outputs [the ADD site](http://atomantic.github.io/add)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/atomantic/add/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
